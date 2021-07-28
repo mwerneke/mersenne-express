@@ -3,6 +3,9 @@ console.log( 'Express App');
 const express = require(`express`);
 //call the function - creates app
 const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const quotes = [
     {
@@ -34,6 +37,17 @@ app.get('/quotes', function(req, res){
     //send back to client
     res.send(quotes);
 }); 
+
+app.post('/quotes', function(req, res){
+    console.log('ready');   
+    console.log('req.body', req.body);
+    let newQuote= req.body;
+    quotes.push(newQuote);
+    //send back to client
+    res.sendStatus(201);
+});
+    
+
 
 //Setup
 const port = 5000;
