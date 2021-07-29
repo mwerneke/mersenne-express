@@ -54,8 +54,6 @@ const port = 5000;
 
 app.listen(port,function(){
     console.log('ready to send back quotes');
-   
-
     //listern for requests first argument is 5000, then functio
  
     console.log('App is up and Runnin on Local Host 5000');
